@@ -975,6 +975,7 @@ def main():
     model = junos_module.params.get('model')
     remove_ns = junos_module.params.get('remove_ns')
     namespace = junos_module.params.get('namespace')
+    timeout = junos_module.params.get('timeout')
 
 
     # If retrieve is set and load and rollback are not set, then
@@ -1199,6 +1200,7 @@ def main():
                                               confirmed=confirmed,
                                               full=commit_full,
                                               sync=commit_sync,
+                                              timeout=timeout,
                                               force_sync=commit_force_sync)
             results['msg'] += ', committed'
         else:
