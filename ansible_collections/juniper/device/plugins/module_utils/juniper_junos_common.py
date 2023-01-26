@@ -797,8 +797,9 @@ class JuniperJunosModule(AnsibleModule):
                     port = con_params.get('port', None)
                     baud = con_params.get('baud', None)
                     attempts = con_params.get('attempts', None)
-                    timeout = con_params.get('timeout', None)  # not used
+                    timeout = con_params.get('timeout', 30)
                     self.params['mode'] = 'serial'
+                    self.params['timeout'] = timeout
                     if port is not None:
                         self.params['port'] = port
                     if baud is not None:
